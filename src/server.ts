@@ -36,7 +36,7 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
       return res.status(400).send("image_url query is required");
     }
 
-    let filteredpath = await filterImageFromURL(image_url);
+    let filteredpath: string = await filterImageFromURL(image_url);
 
     res.status(200).sendFile(filteredpath, () => deleteLocalFiles([filteredpath]));
   });
